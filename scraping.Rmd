@@ -1,0 +1,20 @@
+---
+title: "IL Budget Data"
+author: "Alexis Pearson"
+date: "2/6/2020"
+output: html_document
+---
+```{r Load Libraries}
+library(tidyverse)
+library(tabulizer)
+library(openxlsx)
+```
+
+```{r}
+link <- "http://cgfa.ilga.gov/Upload/052019UpdatedFY2020andFY%202019RevenueEstimates.pdf"
+table <- extract_tables(link,
+               pages = 20,
+               method = "stream")
+exp <- as.data.frame(table[[1]])
+write.xlsx(exp,"COGA_GenFundHist_May.xlsx")
+```
