@@ -11,10 +11,10 @@ library(openxlsx)
 ```
 
 ```{r}
-link <- "http://cgfa.ilga.gov/Upload/052019UpdatedFY2020andFY%202019RevenueEstimates.pdf"
+link <- "http://cgfa.ilga.gov/Upload/03052019econforecastrevest2019-2020.pdf"
 table <- extract_tables(link,
-               pages = 20,
+               pages = 36,
                method = "stream")
 exp <- as.data.frame(table[[1]])
-write.xlsx(exp,"COGA_GenFundHist_May.xlsx")
+write.xlsx(exp,"COGA_GenFundRevHist_Mar.xlsx")
 ```
